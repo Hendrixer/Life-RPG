@@ -32,7 +32,8 @@
         android:text="Stop and be nosey"
         android:id="@+id/choiceButton2"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/storyTextView" />
+        android:layout_alignStart="@+id/storyTextView"
+        android:background="@color/colorMain" />
 
     <Button
         android:layout_width="match_parent"
@@ -40,5 +41,6 @@
         android:text="Continue Home to Earth"
         android:id="@+id/choiceButton1"
         android:layout_above="@+id/choiceButton2"
-        android:layout_alignStart="@+id/choiceButton2" />
+        android:layout_alignStart="@+id/choiceButton2"
+        android:background="@color/colorAccent" />
 </RelativeLayout>

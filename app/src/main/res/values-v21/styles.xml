@@ -3,11 +3,11 @@
     <style name="AppTheme" parent="android:Theme.Material.NoActionBar">
         <item name="android:colorPrimary">@color/colorPrimary</item>
         <!--   darker variant for the status bar and contextual app bars -->
-        <item name="android:colorPrimaryDark">#FF5252</item>
+        <item name="android:colorPrimaryDark">@color/colorMain</item>
         <!--   theme UI controls like checkboxes and text fields -->
         <item name="android:colorAccent">@color/colorAccent</item>
-        <item name="android:navigationBarColor">#FF5252</item>
-        <item name="android:statusBarColor">#FF5252</item>
+        <item name="android:navigationBarColor">@color/colorMain</item>
+        <item name="android:statusBarColor">@color/colorMain</item>
 
         <item name="android:windowContentTransitions">true</item>
 
