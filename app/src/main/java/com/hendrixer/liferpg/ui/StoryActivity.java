@@ -5,8 +5,11 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.graphics.Palette;
 import android.transition.Explode;
 import android.transition.Transition;
 import android.util.Log;
@@ -73,6 +76,31 @@ public class StoryActivity extends Activity {
         mCurrentPage = mStory.getPage(position);
 
         Drawable drawable = getResources().getDrawable(mCurrentPage.getImageId());
+
+        Palette.generateAsync(getBitMapFromDrawable(drawable), new Palette.PaletteAsyncListener() {
+            @Override
+            public void onGenerated(Palette palette) {
+                Palette.Swatch vibrant = palette.getVibrantSwatch();
+
+                if (vibrant != null){
+                    getWindow().setStatusBarColor(vibrant.getRgb());
+                    getWindow().setNavigationBarColor(vibrant.getRgb());
+                }
+
+                Palette.Swatch dark = palette.getDarkVibrantSwatch();
+
+                if (dark != null) {
+                    mChoice1.setBackgroundColor(dark.getRgb());
+                }
+
+                Palette.Swatch muted = palette.getMutedSwatch();
+
+                if (muted != null) {
+                    mChoice2.setBackgroundColor(muted.getRgb());
+                }
+            }
+        });
+
         mImageView.setImageDrawable(drawable);
 
         if (position > 0){
@@ -168,6 +196,12 @@ public class StoryActivity extends Activity {
         animator.setStartDelay(200);
         animator.setDuration(700);
         return animator;
+    }
+
+    public Bitmap getBitMapFromDrawable(Drawable img){
+        Bitmap imageBitmap = ((BitmapDrawable) img).getBitmap();
+
+        return imageBitmap;
     }
 
 }
