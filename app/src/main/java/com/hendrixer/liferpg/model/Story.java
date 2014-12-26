@@ -53,4 +53,9 @@ public class Story {
 
 
     }
+
+    public Page getPage(int position){
+        return mPages[position];
+
+    }
 }

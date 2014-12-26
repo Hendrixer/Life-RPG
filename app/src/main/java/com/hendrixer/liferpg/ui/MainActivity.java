@@ -51,4 +51,11 @@ public class MainActivity extends Activity {
         intent.putExtra(getString(R.string.name_extra), name);
         startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        mNameField.setText("");
+    }
 }
